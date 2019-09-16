@@ -22,6 +22,7 @@ class NavBar extends Component {
                         <Link to="/FrozenDept" className="nav-link">FrozenDept</Link>
                     </li>
                 </ul>
+                <hr/>
             </div>
             
          );

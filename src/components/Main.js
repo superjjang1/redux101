@@ -6,7 +6,7 @@ import FrozenDept from './FrozenDept';
 
 class Main extends Component {
     render() {
-        console.log(connect);
+        // console.log(connect);
         // const frozens = this.props.frozenData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
         // const dairys = this.props.dairyData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
         // const meats = this.props.meatData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)

@@ -7,11 +7,11 @@ import {connect} from 'react-redux';
 
 class MeatDept extends Component {
     render() {
-        console.log(connect);
+        // console.log(connect);
         console.log(this.props.meatData);
-        const meats = this.props.meatData.map((meat)=>{
+        const meats = this.props.meatData.map((meat, i)=>{
             return(
-                <div>
+                <div key={i}>
                     <h1>
                         Type: {meat.food}
                     </h1>

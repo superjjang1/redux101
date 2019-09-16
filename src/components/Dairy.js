@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 
 class Dairy extends Component {
     render() {
-        console.log(connect);
+        // console.log(connect);
         console.log(this.props.dairyData)
-        const Dairys = this.props.dairyData.map((dairy)=>{
+        const Dairys = this.props.dairyData.map((dairy, i)=>{
             return(
-                <div>
+                <div key = {i}>
                     <h1>
                         Type: {dairy.food}
                     </h1>

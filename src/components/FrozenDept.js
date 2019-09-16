@@ -3,11 +3,11 @@ import {connect} from 'react-redux';
 
 export class FrozenDept extends Component {
     render() {
-        console.log(connect);
+        // console.log(connect);
         console.log(this.props.frozenData);
-        const frozens = this.props.frozenData.map((frozen)=>{
+        const frozens = this.props.frozenData.map((frozen, i)=>{
             return(
-                <div>
+                <div key={i}>
                     <h1> 
                     Type: {frozen.food}
                         
