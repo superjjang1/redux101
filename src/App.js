@@ -10,8 +10,8 @@ import FrozenDept from './components/FrozenDept';
 function App(){
 	return(
 		<Router>
-			<NavBar />
-			<Route path="/" component={Main}/>
+			<Route path ="/" component={NavBar} />
+			<Route exact path="/" component={Main}/>
 			<Route path="/Dairy" component={Dairy}/>
 			<Route path="/MeatDept" component={MeatDept}/>
 			<Route path="/FrozenDept" component={FrozenDept}/>
