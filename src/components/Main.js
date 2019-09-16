@@ -10,17 +10,21 @@ class Main extends Component {
         // const frozens = this.props.frozenData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
         // const dairys = this.props.dairyData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
         // const meats = this.props.meatData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
-
+        const storeInventoryArray = [
+            ...this.props.frozenData,
+            ...this.props.meatData,
+            ...this.props.dairyData
+        ];
+        let storeProducts = storeInventoryArray.map((product,i)=>{
+            return(
+                <h5>Type: {product.food}:{product.quantity}</h5>
+            )
+        })
         return (
             
-                <div>
+                <div key>
                     <h1> Welcome to Publix</h1><hr />
-                    <h3>Meat Department</h3>
-                    <MeatDept /><hr/>
-                    <h3>Dairy Department</h3>
-                    <Dairy /><hr />
-                    <h3>Frozen Foods</h3>
-                    <FrozenDept />
+                    {storeProducts}
                 </div>
         
         )

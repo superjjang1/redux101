@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
+//we need our action creator
+import updateFrozen from '../actions/frozenInvUpdate';
+// update is a function with an object, in order for it to be
+//considered an actioncreator, we need to import a function called 
+//{ bindActionCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 
 export class FrozenDept extends Component {
     render() {
+        this.props.updateFrozen();
         // console.log(connect);
         console.log(this.props.frozenData);
         const frozens = this.props.frozenData.map((frozen, i)=>{
@@ -34,4 +41,19 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(FrozenDept);
+function mapDispatchToProps(dispatch){
+    //mapDispatchToProps is how we connect our
+    //component using this action creator
+    //to the dispatch
+    //this function returns, bindActionCreators,
+    //and we hand bindActionCreators an object
+    return bindActionCreators({
+        // each property will be a local prop
+        //for this component.  
+        //each value will be a function, actionCreator, that will have
+        //it's return value(action) sent to the dispatch.
+        updateFrozen: updateFrozen
+    }, dispatch)
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(FrozenDept);
