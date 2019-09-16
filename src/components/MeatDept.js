@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 //in order for this component to know about redux, we need some glue,
 //react-redux specifically, to connect the thing
 import {connect} from 'react-redux';
-import frozenReducer from '../reducers/frozenReducer';
-import meatReducer from '../reducers/meatReducer';
+
 
 
 class MeatDept extends Component {
