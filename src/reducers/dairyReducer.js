@@ -5,19 +5,19 @@ import {statement} from "@babel/template";
 const seedData = [
     {
         food: 'milk',
-        quantity: 12
+        quantity: 1
     },
     {
         food: 'cheese',
-        quantity: 21
+        quantity: 1
     },
     {
         food: 'yogurt',
-        quantity: 5
+        quantity: 1
     },
     {
         food: 'kefir',
-        quantity: 132
+        quantity: 1
     }
 ]
 
@@ -32,8 +32,11 @@ export default (state = seedData, action)=>{
             newState[action.payload.indexToChange].quantity--;
         }
         return newState;
-    }else{
+    }else if(action.type ==='clearInventory'){
+        return [] }else if(action.type ==='resetInventory'){
+            return seedData
+        }else{
 
-        return state;
+            return state;
+        }
     }
-}

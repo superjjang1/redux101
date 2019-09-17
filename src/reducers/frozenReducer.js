@@ -6,19 +6,19 @@ import { thisExpression } from "@babel/types";
 const seedData = [
     {
         food: 'pizza',
-        quantity: 12
+        quantity: 1
     },
     {
         food: 'ice cream',
-        quantity: 21
+        quantity: 1
     },
     {
         food: 'family dinner',
-        quantity: 5
+        quantity: 1
     },
     {
         food: 'frozen veggies',
-        quantity: 132
+        quantity: 1
     }
 ]
 
@@ -35,8 +35,11 @@ export default (state = seedData, action)=>{
             newState[action.payload.indexToChange].quantity--;
         }
         return newState;
-    }else{
+    }else if(action.type ==='clearInventory'){
+        return []}else if(action.type ==='resetInventory'){
+            return seedData
+        }else{
 
-        return state;
+            return state;
+        }
     }
-}

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 // import FrozenDept from './FrozenDept';
 import {bindActionCreators} from 'redux';
 import clearInventory from '../actions/clearInventory';
+import resetInventory from '../actions/resetInventory';
 
 class Main extends Component {
     render() {
@@ -25,7 +26,6 @@ class Main extends Component {
         let storeProducts = storeInventoryArray.map((product,i)=>{
             return(
                 <div>
-
                     <h3 key = {i}>Type: {product.food} Quantity:{product.quantity}</h3>
                 </div>
             )
@@ -37,6 +37,8 @@ class Main extends Component {
                     <h3>Total frozen foods: {frozenQuantity}</h3>
                     <h3>Total meat foods: {meatQuantity}</h3>
                     <h3>Total dairy foods: {dairyQuantity}</h3>
+                    <button onClick={this.props.clearInventory}>Clear all Inventory</button>
+                    <button onClick={this.props.resetInventory}>Reset Inventory</button>
                     {storeProducts}
                 </div>
         
@@ -52,7 +54,8 @@ function mapStateToProps(state){
 }
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        clearInventory
+        clearInventory,
+        resetInventory
     },dispatch)
 }
 
