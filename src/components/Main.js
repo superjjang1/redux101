@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import MeatDept from './MeatDept';
-import Dairy from './Dairy';
-import FrozenDept from './FrozenDept';
+// import MeatDept from './MeatDept';
+// import Dairy from './Dairy';
+// import FrozenDept from './FrozenDept';
+import {bindActionCreators} from 'redux';
+import clearInventory from '../actions/clearInventory';
 
 class Main extends Component {
     render() {
+        const frozenQuantity = this.props.frozenData.reduce((a,b)=>a+b.quantity,0)
+        const dairyQuantity = this.props.dairyData.reduce((a,b)=>a+b.quantity,0)
+        const meatQuantity = this.props.meatData.reduce((a,b)=>a+b.quantity,0)
+
+        console.log(frozenQuantity)
         // console.log(connect);
         // const frozens = this.props.frozenData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
         // const dairys = this.props.dairyData.map((item, i)=> <h1 key ={item.food + i}>{item.quantity} {item.food}</h1>)
@@ -17,13 +24,19 @@ class Main extends Component {
         ];
         let storeProducts = storeInventoryArray.map((product,i)=>{
             return(
-                <h3>Type: {product.food} Quantity:{product.quantity}</h3>
+                <div>
+
+                    <h3 key = {i}>Type: {product.food} Quantity:{product.quantity}</h3>
+                </div>
             )
         })
         return (
             
-                <div key>
+                <div>
                     <h1> Welcome to Publix</h1><hr />
+                    <h3>Total frozen foods: {frozenQuantity}</h3>
+                    <h3>Total meat foods: {meatQuantity}</h3>
+                    <h3>Total dairy foods: {dairyQuantity}</h3>
                     {storeProducts}
                 </div>
         
@@ -37,5 +50,11 @@ function mapStateToProps(state){
         dairyData: state.dairy
     }
 }
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        clearInventory
+    },dispatch)
+}
 
-export default connect(mapStateToProps, null)(Main);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
