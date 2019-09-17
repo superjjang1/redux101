@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import updateDairy from '../actions/dairyInvUpdate';
 import { bindActionCreators } from '../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import AddItem from './AddItem';
+
 
 export class Dairy extends Component {
     changeQuantity=(operation, indexToChange)=>{
@@ -23,6 +25,7 @@ export class Dairy extends Component {
         })
         return (
             <div>
+                <AddItem dept="Dairy" />
                 {Dairys}
             </div>
         )

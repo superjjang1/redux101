@@ -6,6 +6,7 @@ import updateFrozen from '../actions/frozenInvUpdate';
 //considered an actioncreator, we need to import a function called 
 //{ bindActionCreators } from 'redux';
 import { bindActionCreators } from 'redux';
+import AddItem from './AddItem';
 
 export class FrozenDept extends Component {
     componentDidMount(){
@@ -32,6 +33,7 @@ changeQuantity=(operation, indexToChange)=>{
         console.log(frozens)
         return (
             <div>
+                <AddItem />
                 {frozens}
             </div>
         )
