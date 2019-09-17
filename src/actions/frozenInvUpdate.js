@@ -6,9 +6,12 @@
 //be handed to the dispatched.  The dispatch will send that 
 //action to all reducers
 
-export default(newValue)=>{
+export default(operation,indexToChange)=>{
     return {
         type: "updateFrozen",
-        payload: newValue
+        payload: {
+            operation,
+            indexToChange
+        }
     }
 }

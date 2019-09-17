@@ -2,22 +2,26 @@ import React, { Component } from 'react'
 //in order for this component to know about redux, we need some glue,
 //react-redux specifically, to connect the thing
 import {connect} from 'react-redux';
+import updateMeat from '../actions/meatInvUpdate'
+import { bindActionCreators } from '../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
 
 
 
-class MeatDept extends Component {
+export class MeatDept extends Component {
+    changeQuantity=(operation, indexToChange)=>{
+        console.log(operation,indexToChange);
+        this.props.updateMeat(operation,indexToChange);
+    
+    }    
     render() {
         // console.log(connect);
         console.log(this.props.meatData);
         const meats = this.props.meatData.map((meat, i)=>{
             return(
                 <div key={i}>
-                    <h1>
-                        Type: {meat.food}
-                    </h1>
-                    <h1>
-                        Quantity: {meat.quantity}
-                    </h1>
+                    <li>type: {meat.food} quantity: {meat.quantity}</li>
+                    <input className="add-button" type="button" onClick={()=>{this.changeQuantity('+',i)}}value="+"/>
+                    <input className="add-button" type="button" onClick={()=>{this.changeQuantity('-',i)}}value="-"/>
                 </div>
             )
         })
@@ -40,6 +44,11 @@ function mapStateToProps(state){
         meatData: state.meat
     }
 }
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({
+        updateMeat: updateMeat
+    },dispatch)
+}
 
 // export default MeatDept
 //we don't export the class when we need REDUX, we export connect(f)
@@ -47,4 +56,4 @@ function mapStateToProps(state){
 //to mapStateToProps (2) a function that maps the dispatch to props. 
 //(3) connect, is a function, that returns a function.
 // you can rewrite it like this. const meatDeptWithRedux = connect(mapStateToProps)
-export default connect(mapStateToProps)(MeatDept);
+export default connect(mapStateToProps,mapDispatchToProps)(MeatDept);
