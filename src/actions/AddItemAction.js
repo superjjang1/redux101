@@ -1,5 +1,11 @@
 export default (dept, food, quantity) =>{
+    const type = `addItem-${dept}`
     return {
-        type: "addItem"
+        type,
+        payload: {
+            food,
+            quantity
+        }
+
     }
 }

@@ -33,7 +33,7 @@ changeQuantity=(operation, indexToChange)=>{
         console.log(frozens)
         return (
             <div>
-                <AddItem />
+                <AddItem dept="Frozen"/>
                 {frozens}
             </div>
         )

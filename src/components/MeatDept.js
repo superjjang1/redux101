@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import updateMeat from '../actions/meatInvUpdate'
 import { bindActionCreators } from '../../../../../../../Library/Caches/typescript/3.5/node_modules/redux';
+import AddItem from './AddItem';
+
 
 
 
@@ -28,6 +30,7 @@ export class MeatDept extends Component {
 
         return (
             <div>
+                <AddItem dept="Meat"/>
                 {meats}
             </div>
         )

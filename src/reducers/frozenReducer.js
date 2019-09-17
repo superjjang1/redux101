@@ -38,6 +38,17 @@ export default (state = seedData, action)=>{
     }else if(action.type ==='clearInventory'){
         return []}else if(action.type ==='resetInventory'){
             return seedData
+        }
+            else if(action.type=== 'addItem-Frozen'){
+                let newState=[...state];
+                const food= action.payload.food
+                const quantity = action.payload.quantity
+                newState.push({
+            
+                    food,
+                    quantity
+                })
+                return newState
         }else{
 
             return state;

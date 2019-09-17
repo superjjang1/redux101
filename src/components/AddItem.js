@@ -11,6 +11,12 @@ class AddItem extends Component {
     }
     submitItem = (e)=>{
         e.preventDefault();
+        this.props.addItemAction(
+            this.props.dept,
+            this.state.food,
+            this.state.quantity
+
+        )
     }
     changeFood = (e)=>{
         this.setState({food:e.target.value})
@@ -38,4 +44,4 @@ function mapDispatchToProps(dispatch){
 }
 
  
-export default connection(null,mapDispatchToProps)(AddItem);
+export default connect(null,mapDispatchToProps)(AddItem);
