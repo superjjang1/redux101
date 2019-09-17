@@ -8,8 +8,10 @@ import updateFrozen from '../actions/frozenInvUpdate';
 import { bindActionCreators } from 'redux';
 
 export class FrozenDept extends Component {
-    render() {
+    componentDidMount(){
         this.props.updateFrozen([{}]);
+}
+    render() {
         // console.log(connect);
         console.log(this.props.frozenData);
         const frozens = this.props.frozenData.map((frozen, i)=>{
