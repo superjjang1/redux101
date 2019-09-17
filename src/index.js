@@ -17,6 +17,7 @@ import rootReducer from './reducers/rootReducer';
 //4. actually create the store(2) 
 // by passing it the root reducer(3.) which is made up of the individual reducers
 const aPublix = createStore(rootReducer);
+//WOOHOO! made a store, redux is ready
 //provider(1) is the component that glues react and redux together
 //we hand the provider to reactDOM.render,
 //and we hand the provider a prop of store, with our store.App

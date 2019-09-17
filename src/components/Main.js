@@ -17,7 +17,7 @@ class Main extends Component {
         ];
         let storeProducts = storeInventoryArray.map((product,i)=>{
             return(
-                <h5>Type: {product.food}:{product.quantity}</h5>
+                <h3>Type: {product.food} Quantity:{product.quantity}</h3>
             )
         })
         return (

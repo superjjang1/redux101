@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 
 export class FrozenDept extends Component {
     render() {
-        this.props.updateFrozen();
+        this.props.updateFrozen([{}]);
         // console.log(connect);
         console.log(this.props.frozenData);
         const frozens = this.props.frozenData.map((frozen, i)=>{
@@ -53,6 +53,13 @@ function mapDispatchToProps(dispatch){
         //each value will be a function, actionCreator, that will have
         //it's return value(action) sent to the dispatch.
         updateFrozen: updateFrozen
+        //updateFrozen, was a regular function.
+        //But, bindActionCreators, is like being bit by a radio
+        //active spider, now an action creator 
+        //All an action creator is, is a function, that returns an action
+        //what is an Action? an actin, is an object, that has
+        //atleast one property, it has to have a type, or it's not an action.
+        ///the dispatch will send that object, to every reducer.
     }, dispatch)
 }
 

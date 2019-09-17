@@ -13,7 +13,7 @@ const seedData = [
     },
     {
         food: 'crab',
-        quanity: 5
+        quantity: 5
     },
     {
         food: 'pork',

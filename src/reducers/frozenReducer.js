@@ -13,7 +13,7 @@ const seedData = [
     },
     {
         food: 'family dinner',
-        quanity: 5
+        quantity: 5
     },
     {
         food: 'frozen veggies',
@@ -24,5 +24,11 @@ const seedData = [
 export default (state = seedData, action)=>{
     console.log("frozen Reducer is running");
     console.log(action.type);
-    return state;
+    console.log(action.payload);
+    if (action.type ==='updateFrozen'){
+        return action.payload;
+    }else{
+
+        return state;
+    }
 }

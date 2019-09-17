@@ -12,9 +12,9 @@ function App(){
 		<Router>
 			<Route path ="/" component={NavBar} />
 			<Route exact path="/" component={Main}/>
-			<Route path="/Dairy" component={Dairy}/>
-			<Route path="/MeatDept" component={MeatDept}/>
-			<Route path="/FrozenDept" component={FrozenDept}/>
+			<Route exact path="/Dairy" component={Dairy}/>
+			<Route exact path="/MeatDept" component={MeatDept}/>
+			<Route exact path="/FrozenDept" component={FrozenDept}/>
 			
 		</Router>
 
